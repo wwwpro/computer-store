@@ -1,0 +1,31 @@
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+  dynamodb-local:
+    networks:
+      - devnet
+    image: amazon/dynamodb-local:latest
+    ports:
+      - "8010:8000"
+    volumes:
+    - ./data:/data
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /data"
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    ports:
+      - "8001:8001"
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb-local:8010
+    depends_on:
+      - dynamodb-local
+    networks:
+      - devnet
+
+
+networks:
+  devnet:
+    name: devnet

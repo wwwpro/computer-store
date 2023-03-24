@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "computer-store"
+version = "0.1.0"
+description = ""
+authors = ["Dylan Burris <dylan@dylanburris.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0.0"
+pytest = "^7.2.2"
+
+
+[tool.poetry.group.dev.dependencies]
+boto3 = "^1.26.97"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+import-data = "scripts.load_data:run"

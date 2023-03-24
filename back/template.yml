@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Template for building the
+
+
+Resources:
+  aliEngine:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      AutoPublishAlias: live
+      Timeout: 300
+      MemorySize: 512
+      CodeUri: src/
+      Layers:
+        - !Ref AliLayer
+      VpcConfig:
+        SubnetIds:
+          - subnet-0d0913dba451196f2
+          - subnet-0d741d5a311a900ae
+        SecurityGroupIds:
+          - sg-024ececab42c09d47
+      Environment:
+        Variables:
+          MODE: production
+          PROCO_URL: "http://atlas-proco.ares/"
+          ALLEN_URL: https://devapi.arestech.ai/allen/treeParse/
+          SIMILARITY_CHECK_URL: http://devapi.arestech.ai/wmd/distance/
+          SIMILARITY_THRESHOLD: 1.3
+          DYNAMODB_TABLE_NAME: ali
+          COMMIT: { "Ref": "Commit" }
+  AliLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: OpenSearch
+      Description: Python Libraries for opensearch.
+      ContentUri: packages/
+      CompatibleRuntimes:
+        - python3.9
+      LicenseInfo: 'MIT'
+      RetentionPolicy: Retain
