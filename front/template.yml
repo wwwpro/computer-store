@@ -30,8 +30,6 @@ Resources:
           AWS_LWA_ENABLE_COMPRESSION: true
           RUST_LOG: info
           PORT: 8000
-      Layers:
-        - !Sub arn:aws:lambda:us-west-2:753240598075:layer:LambdaAdapterLayerX86:15
       Events:
         ApiEvent:
           Type: Api
