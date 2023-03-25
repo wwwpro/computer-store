@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        nodejs: 16
+  pre_build:
+    commands:
+      - sam build
+  build:
+    commands:
+      - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
+      - rm -rf packages
+artifacts:
+  files:
+    - packaged-template.yml
+cache:
+  paths:
+    - '.venv/**/*'

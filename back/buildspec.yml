@@ -2,19 +2,10 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-        python: 3.8
-    commands:
-      - pip install --upgrade pipenv
-      - export LANG="en_US.UTF-8"
-      - export LC_CTYPE="en_US.UTF-8"
-      - cd ${CODEBUILD_SRC_DIR}/back
-      - mkdir .venv
-      - mkdir packages
+        nodejs: 16
   pre_build:
     commands:
-      - pipenv install
-      - mv .venv/ python/
-      - mv python/ packages
+      - sam build
   build:
     commands:
       - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml

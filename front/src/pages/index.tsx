@@ -3,12 +3,12 @@ import {useEffect, useState} from "react"
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 // import styles from '@/styles/Home.module.css'
-import Spinner from "@/components/Spinner"
+import Spinner from "../components/Spinner"
 import Box from '@mui/material/Box'
 import Grid from "@mui/material/Grid"
 
 
-import ProductItem from "@/components/ProductItem"
+import ProductItem from "../components/ProductItem"
 import {Button} from "@mui/material";
 
 const inter = Inter({subsets: ['latin']})

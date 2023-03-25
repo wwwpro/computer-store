@@ -10,7 +10,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def load_data():
-
     load_dotenv()
 
     dynamodb = boto3.resource('dynamodb', region_name='us-east-2')
@@ -30,11 +29,10 @@ def load_data():
             }
             table.put_item(Item=item)
 
-    print(f'[DONE!]')
+    print('[DONE!]')
 
 
 def run():
-
     parser = argparse.ArgumentParser(description='Populates DynamoDB data from db.json')
     parser.add_argument('--aws', help='Loads data on an AWS table.', action='store_true')
     parser.add_argument('--tablename', '-T', help='Loads data on an AWS table.')
