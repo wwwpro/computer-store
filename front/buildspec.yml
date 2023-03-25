@@ -5,9 +5,10 @@ phases:
         nodejs: 16
   pre_build:
     commands:
-      - sam build
+      - cd ${CODEBUILD_SRC_DIR}/front
   build:
     commands:
+      - sam build
       - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
       - rm -rf packages
 artifacts:
