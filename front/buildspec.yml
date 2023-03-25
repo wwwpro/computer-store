@@ -10,7 +10,7 @@ phases:
     commands:
       - sam build
       - echo "IMAGE_URI ${IMAGE_URI}"
-      - sam package --s3-bucket next-west-2.dylanburris.me --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml 072650510256.dkr.ecr.us-west-2.amazonaws.com/spotter-front-test
+      - sam package --s3-bucket next-west-2.dylanburris.me --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml --image-repository 072650510256.dkr.ecr.us-west-2.amazonaws.com/spotter-front-test
 artifacts:
   files:
     - packaged-template.yml
