@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  serverless-nextjs-demo
+
+  Sample SAM Template for serverless-nextjs-demo
+  
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: v1
+  NextjsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      MemorySize: 512
+      Handler: run.sh
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          AWS_LAMBDA_EXEC_WRAPPER: /opt/bootstrap
+          AWS_LWA_ENABLE_COMPRESSION: true
+          RUST_LOG: info
+          PORT: 8000
+      Layers:
+        - !Sub arn:aws:lambda:us-west-2:753240598075:layer:LambdaAdapterLayerX86:15
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Method: get
+            Path: /
+            RestApiId:
+              Ref: ApiGatewayApi
+    Metadata:
+      DockerTag: v1
+      DockerContext: .
+      Dockerfile: Dockerfile
