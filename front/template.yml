@@ -21,6 +21,7 @@ Resources:
       MemorySize: 512
       Handler: run.sh
       Runtime: nodejs16.x
+      PackageType: Image
       Architectures:
         - x86_64
       Environment:
@@ -40,6 +41,6 @@ Resources:
             RestApiId:
               Ref: ApiGatewayApi
     Metadata:
-      DockerTag: wwwpro/spotter-front-sam
+      DockerTag: spotter-front-sam
       DockerContext: .
       Dockerfile: Dockerfile
