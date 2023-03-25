@@ -17,7 +17,7 @@ Resources:
   NextjsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
+      CodeUri: .
       MemorySize: 512
       Handler: run.sh
       Runtime: nodejs16.x
@@ -40,6 +40,6 @@ Resources:
             RestApiId:
               Ref: ApiGatewayApi
     Metadata:
-      DockerTag: v1
+      DockerTag: wwwpro/spotter-front-sam
       DockerContext: .
       Dockerfile: Dockerfile

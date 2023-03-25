@@ -1,0 +1,10 @@
+# Needed for local docker building and testing.
+node_modules
+.aws-sam
+.next
+.idea
+iac
+README.md
+buildspec.yml
+template.yml
+next-env.d.ts
