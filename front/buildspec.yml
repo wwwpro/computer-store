@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - npm ci && npm run build
-      - aws s3 cp --recursive ./.next/static s3://${ASSET_BUCKET}/nextjs
+      - aws s3 cp --recursive ./.next/static s3://${ASSET_BUCKET}/nextjs/_next/static
       - sam build
       - echo "IMAGE_URI ${IMAGE_URI}"
       - sam package --s3-bucket next-west-2.dylanburris.me --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml --image-repository ${IMAGE_REPOSITORY}
