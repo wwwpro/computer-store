@@ -1,7 +1,6 @@
 # Needed for local docker building and testing.
 node_modules
 .aws-sam
-.next
 .idea
 iac
 README.md
