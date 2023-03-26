@@ -16,17 +16,9 @@ Resources:
     Properties:
       CodeUri: .
       MemorySize: 512
-      Handler: run.sh
-      Runtime: nodejs16.x
       PackageType: Image
       Architectures:
         - x86_64
-      Environment:
-        Variables:
-          AWS_LAMBDA_EXEC_WRAPPER: /opt/bootstrap
-          AWS_LWA_ENABLE_COMPRESSION: true
-          RUST_LOG: info
-          PORT: 8000
       Events:
         ApiEvent:
           Type: Api
