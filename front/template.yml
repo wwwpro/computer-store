@@ -28,6 +28,6 @@ Resources:
             RestApiId:
               Ref: ApiGatewayApi
     Metadata:
-      DockerTag: spotter-front-sam
+      DockerTag: v1
       DockerContext: .
       Dockerfile: Dockerfile
