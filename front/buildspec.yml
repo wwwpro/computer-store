@@ -8,6 +8,7 @@ phases:
       - cd ${CODEBUILD_SRC_DIR}/front
   build:
     commands:
+      - rm -rf iac
       - npm ci && npm run build
       - aws s3 cp --recursive ./next/static s3://next-west-2.dylanburris.me/nextjs
       - sam build
