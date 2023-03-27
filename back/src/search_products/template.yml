@@ -8,7 +8,22 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: v1
-
+      DefinitionBody:
+        openapi: "3.0.1"
+        info:
+          title: "spotter-front-docker"
+          version: "1.0"
+        servers:
+          - url: "https://computer-store.dylanburris.me"
+        paths:
+          /:
+            get:
+              x-amazon-apigateway-integration:
+                type: "aws_proxy"
+                httpMethod: "POST"
+                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+                passthroughBehavior: "when_no_match"
+        components: { }
   searchProducts:
     Type: AWS::Serverless::Function
     Properties:
