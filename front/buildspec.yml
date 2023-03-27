@@ -6,6 +6,7 @@ phases:
   pre_build:
     commands:
       - cd ${CODEBUILD_SRC_DIR}/front
+      - pwd
   build:
     commands:
       - rm -Rf ${CODEBUILD_SRC_DIR}/iac

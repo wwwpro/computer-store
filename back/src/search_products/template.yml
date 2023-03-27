@@ -4,21 +4,22 @@ Description: Template for building the
 
 
 Resources:
-  aliEngine:
+  searchProducts:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambda_function.lambda_handler
+      Handler: lambda.lambda_handler
       Runtime: python3.9
       AutoPublishAlias: live
       Timeout: 300
       MemorySize: 512
-      CodeUri: src/
+      CodeUri: .
       Layers:
-        - !Ref AliLayer
+        - !Ref SearchLayer
       Environment:
         Variables:
           MODE: production
-  AliLayer:
+
+  SearchLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
       LayerName: OpenSearch
