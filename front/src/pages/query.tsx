@@ -1,4 +1,4 @@
-import {API_URL} from "@/pages/constants"
+import {API_URL} from "@/constants"
 import useSWR from 'swr'
 import {addProducts, setTotal} from "@/pages/slice";
 import {useDispatch} from "react-redux";

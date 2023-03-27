@@ -39,5 +39,4 @@ def run():
 
     args = parser.parse_args()
 
-    print(f'[AWS is]: {args.aws}')
-    print(f'[Tablename is]: {args.tablename}')
+    load_data()

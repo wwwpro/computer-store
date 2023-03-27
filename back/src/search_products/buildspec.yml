@@ -8,6 +8,7 @@ phases:
       - sam build
   build:
     commands:
+      - pip
       - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
       - rm -rf packages
 artifacts:
