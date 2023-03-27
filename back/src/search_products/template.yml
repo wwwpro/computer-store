@@ -18,7 +18,6 @@ Resources:
       Environment:
         Variables:
           MODE: production
-          COMMIT: { "Ref": "Commit" }
   AliLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
