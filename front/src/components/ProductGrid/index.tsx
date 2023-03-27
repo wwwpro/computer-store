@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid"
 import ProductItem from "@/components/ProductItem"
 import Spinner from "@/components/Spinner"
 import {Button} from "@mui/material"
-import {setSearchAfter} from "@/pages/slice"
+import {setSearchAfter} from "@/_slice"
 import {useDispatch, useSelector} from "react-redux"
 
 function ProductGrid({isLoading}: { isLoading: boolean }) {

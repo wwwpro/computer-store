@@ -3,13 +3,10 @@ import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import Stack from "@mui/material/Stack"
 
-import {useDispatch} from "react-redux"
 import SearchInput from "./SearchInput"
 
 
 function SearchBar() {
-
-    const dispatch = useDispatch()
 
     return (
         <AppBar

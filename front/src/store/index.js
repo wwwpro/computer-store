@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-import GlobalSlice from "../pages/slice"
+import GlobalSlice from "../_slice"
 import SearchBarSlice from "../components/SearchBar/SearchInput/slice"
 
 

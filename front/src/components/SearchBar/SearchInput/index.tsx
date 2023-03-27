@@ -1,9 +1,9 @@
 import {useCallback, useState} from "react"
 import {InputAdornment, TextField} from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import {debounce} from "lodash"
-import {setProducts, setQuery, setSearchAfter, setTotal} from "@/pages/slice"
+import {setProducts, setQuery, setSearchAfter, setTotal} from "@/_slice"
 
 
 function SearchInput(props: any) {

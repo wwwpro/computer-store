@@ -5,10 +5,12 @@ phases:
         nodejs: 16
   pre_build:
     commands:
-      - sam build
+      - cd ${CODEBUILD_SRC_DIR}/back
   build:
     commands:
-      - pip
+      - pip install --target package requests
+      - pip install --target package requests_aws4auth
+      - sam build
       - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
       - rm -rf packages
 artifacts:

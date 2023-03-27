@@ -4,6 +4,11 @@ Description: Template for building the
 
 
 Resources:
+  searchProductsApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: v1
+
   searchProducts:
     Type: AWS::Serverless::Function
     Properties:
@@ -18,6 +23,13 @@ Resources:
       Environment:
         Variables:
           MODE: production
+      Events:
+        SearchProducts:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+            RestApiId: !Ref searchProductsApi
 
   SearchLayer:
     Type: AWS::Serverless::LayerVersion

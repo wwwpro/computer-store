@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 
 import useSWR from 'swr'
 
-import {addProducts, setTotal} from "./slice"
+import {addProducts, setTotal} from "@/_slice"
 import ProductGrid from "@/components/ProductGrid"
 
 
