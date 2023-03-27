@@ -1,3 +1,8 @@
+html, body {
+    background-color: #fafafa;
+    font-size: 16px;
+}
+
 /*:root {*/
 /*  --max-width: 1100px;*/
 /*  --border-radius: 12px;*/

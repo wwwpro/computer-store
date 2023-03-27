@@ -21,7 +21,6 @@ def lambda_handler(event, context):
             "query": {
                 "multi_match": {
                     "query": event['queryStringParameters']['q'],
-                    "type": "bool_prefix",
                     "fields": ["title^4", "vendor^2"]
                 },
             },
