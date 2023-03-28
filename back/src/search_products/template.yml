@@ -21,7 +21,7 @@ Resources:
               x-amazon-apigateway-integration:
                 type: "aws_proxy"
                 httpMethod: "POST"
-                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+                uri: !Sub arn:aws:apigateway:${AWS_REGION}:lambda:path/2015-03-31/functions/${searchProducts.Arn}/invocations
                 passthroughBehavior: "when_no_match"
         components: { }
   searchProducts:
