@@ -68,16 +68,16 @@ Resources:
       Environment:
         Variables:
           MODE: production
-      Events:
-        ApiEvent:
-          Type: Api
-          Properties:
-            Path: /
-            Method: get
-            RequestParameters:
-              - method.request.querystring.q: true
-            RestApiId:
-              Ref: searchProductsApi
+#      Events:
+#        ApiEvent:
+#          Type: Api
+#          Properties:
+#            Path: /
+#            Method: get
+#            RequestParameters:
+#              - method.request.querystring.q: true
+#            RestApiId:
+#              Ref: searchProductsApi
 
   SearchLayer:
     Type: AWS::Serverless::LayerVersion
