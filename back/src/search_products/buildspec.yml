@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  variables:
+    ARTIFACT_BUCKET: "/spotter/prod/artifact-bucket"
 phases:
   install:
     runtime-versions:
@@ -11,7 +14,7 @@ phases:
   build:
     commands:
       - sam build
-      - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
+      - sam package --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
     post_build:
       - rm -rf packages
 artifacts:
