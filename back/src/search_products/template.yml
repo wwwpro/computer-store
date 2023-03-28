@@ -11,19 +11,49 @@ Resources:
       DefinitionBody:
         openapi: "3.0.1"
         info:
-          title: "spotter-front-docker"
-          version: "1.0"
+          title: "computer-store"
+          version: "2023-03-27T00:28:55Z"
         servers:
-          - url: "https://computer-store.dylanburris.me"
+          - url: "https://1imq7ml2b7.execute-api.us-west-2.amazonaws.com/{basePath}"
+            variables:
+              basePath:
+                default: "/v1"
         paths:
           /:
             get:
+              parameters:
+                - name: "q"
+                  in: "query"
+                  schema:
+                    type: "string"
+              responses:
+                "200":
+                  description: "200 response"
+                  content:
+                    application/json:
+                      schema:
+                        $ref: "#/components/schemas/Empty"
+              x-amazon-apigateway-request-validator: "Validate query string parameters and\
+                \ headers"
               x-amazon-apigateway-integration:
                 type: "aws_proxy"
                 httpMethod: "POST"
                 uri: !Sub arn:aws:apigateway:${AWS_REGION}:lambda:path/2015-03-31/functions/${searchProducts.Arn}/invocations
+                responses:
+                  default:
+                    statusCode: "200"
                 passthroughBehavior: "when_no_match"
-        components: { }
+                contentHandling: "CONVERT_TO_TEXT"
+        components:
+          schemas:
+            Empty:
+              title: "Empty Schema"
+              type: "object"
+        x-amazon-apigateway-request-validators:
+          Validate query string parameters and headers:
+            validateRequestParameters: true
+            validateRequestBody: false
+
   searchProducts:
     Type: AWS::Serverless::Function
     Properties:
