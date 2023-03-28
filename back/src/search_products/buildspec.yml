@@ -1,6 +1,6 @@
 version: 0.2
 env:
-  variables:
+  parameter-store:
     ARTIFACT_BUCKET: /spotter/prod/artifact-bucket
 phases:
   install:
