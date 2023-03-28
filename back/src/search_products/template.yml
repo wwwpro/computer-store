@@ -14,7 +14,7 @@ Resources:
           title: "computer-store"
           version: "2023-03-27T00:28:55Z"
         servers:
-          - url: "https://1imq7ml2b7.execute-api.us-west-2.amazonaws.com/{basePath}"
+          - url: "https://skbf6e3i6f.execute-api.us-west-2.amazonaws.com/{basePath}"
             variables:
               basePath:
                 default: "/v1"
