@@ -17,7 +17,7 @@ function SearchInput(props: any) {
         dispatch(setSearchAfter(null))
         dispatch(setTotal(0))
         dispatch(setQuery(value))
-    }, 1000), [])
+    }, 250), [])
 
     const handleSearch = (event: any) => {
         const value = event.target.value

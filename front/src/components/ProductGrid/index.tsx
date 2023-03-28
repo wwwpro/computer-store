@@ -46,7 +46,8 @@ function ProductGrid({isLoading}: { isLoading: boolean }) {
                     }}>Show more</Button>
                 }
 
-            </Box></>
+            </Box>
+        </>
     )
 }
 
