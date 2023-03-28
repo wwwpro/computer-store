@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Template for building the
+Description: Template for building Computer Search.
 
 
 Resources:
@@ -74,7 +74,8 @@ Resources:
           Properties:
             Path: /
             Method: get
-            RestApiId: !Ref searchProductsApi
+            RestApiId:
+              Ref: searchProductsApi
 
   SearchLayer:
     Type: AWS::Serverless::LayerVersion
