@@ -5,7 +5,7 @@ phases:
         nodejs: 16
   pre_build:
     commands:
-      - cd ${CODEBUILD_SRC_DIR}/back
+      - cd ${CODEBUILD_SRC_DIR}/back/src/search_products
   build:
     commands:
       - pip install --target package requests
