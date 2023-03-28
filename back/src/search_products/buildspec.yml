@@ -6,12 +6,13 @@ phases:
   pre_build:
     commands:
       - cd ${CODEBUILD_SRC_DIR}/back/src/search_products
-  build:
-    commands:
       - pip install --target package requests
       - pip install --target package requests_aws4auth
+  build:
+    commands:
       - sam build
       - sam package --template-file template.yml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file ${CODEBUILD_SRC_DIR}/packaged-template.yml
+    post_build:
       - rm -rf packages
 artifacts:
   files:
