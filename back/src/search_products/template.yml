@@ -33,9 +33,9 @@ Resources:
   SearchLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
-      LayerName: OpenSearch
+      LayerName: ProductSearch
       Description: Python Libraries for opensearch.
-      ContentUri: python/
+      ContentUri: .
       CompatibleRuntimes:
         - python3.9
       LicenseInfo: 'MIT'
