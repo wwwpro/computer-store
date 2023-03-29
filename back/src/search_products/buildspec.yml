@@ -9,8 +9,8 @@ phases:
   pre_build:
     commands:
       - cd ${CODEBUILD_SRC_DIR}/back/src/search_products
-      - pip install --target python requests
-      - pip install --target python requests_aws4auth
+      - pip install --target python/lib/python3.9/site-packages requests
+      - pip install --target python/lib/python3.9/site-packages requests_aws4auth
   build:
     commands:
       - sam build
