@@ -5,6 +5,7 @@ import useSWR from 'swr'
 
 import {addProducts, setTotal} from "@/_slice"
 import ProductGrid from "@/components/ProductGrid"
+import {API_URL} from "@/constants"
 
 
 
@@ -15,7 +16,7 @@ export default function Home() {
     const searchAfter = useSelector((state: any) => state.global.searchAfter)
     const query = useSelector((state: any) => state.global.query)
 
-    const url = new URL('https://1imq7ml2b7.execute-api.us-west-2.amazonaws.com/v1/')
+    const url = new URL(API_URL)
     if (searchAfter) {
         url.searchParams.set('sa', searchAfter)
     }
